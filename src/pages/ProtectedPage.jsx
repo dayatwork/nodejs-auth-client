@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const ProtectedPage = () => {
+  const history = useHistory();
   const [data, setData] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get("/api/v1/protect");
-      setData(res.data);
+      try {
+        const res = await axios.get("/api/v1/protect");
+        setData(res.data);
+      } catch (error) {
+        console.log(error);
+        history.push("/");
+      }
     };
     fetchData();
   }, []);
