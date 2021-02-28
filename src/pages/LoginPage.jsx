@@ -36,7 +36,7 @@ const LoginPage = () => {
       // console.log("error2", error.response.data);
       if (error.response.status === 401) {
         emailRef.current.focus();
-        toast.error("");
+        toast.error("Invalid Credentials");
       } else {
         toast.error(error.response.data);
       }
