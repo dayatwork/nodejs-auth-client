@@ -32,6 +32,7 @@ const LoginPage = () => {
       history.push("/profile");
     } catch (error) {
       console.log("error", error);
+      console.log("error1", error.response);
       console.log("error2", error.response.data);
       emailRef.current.focus();
       toast.error(error.response.data.error);
