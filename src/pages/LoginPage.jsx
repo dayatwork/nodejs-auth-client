@@ -31,11 +31,15 @@ const LoginPage = () => {
       toast.success("Logged in");
       history.push("/profile");
     } catch (error) {
-      console.log("error", error);
-      console.log("error1", error.response);
-      console.log("error2", error.response.data);
-      emailRef.current.focus();
-      toast.error(error.response.data.error);
+      // console.log("error", error);
+      // console.log("error1", error.response);
+      // console.log("error2", error.response.data);
+      if (error.response.status === 401) {
+        emailRef.current.focus();
+        toast.error("");
+      } else {
+        toast.error(error.response.data);
+      }
     }
   };
 
