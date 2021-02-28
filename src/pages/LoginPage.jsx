@@ -1,5 +1,6 @@
 import React, { useState, useRef, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import googleLogo from "../assets/icons/google.svg";
@@ -9,15 +10,16 @@ import { AuthContext } from "../context/authContext";
 
 const LoginPage = () => {
   const history = useHistory();
+  const [cookies] = useCookies(["userInfo"]);
 
   const emailRef = useRef(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const auth = useContext(AuthContext);
 
-  if (auth.cookies.userInfo) {
-    history.push("/");
-  }
+  // if (cookies.userInfo) {
+  //   history.push("/");
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
