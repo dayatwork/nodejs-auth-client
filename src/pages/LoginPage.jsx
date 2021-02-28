@@ -26,10 +26,12 @@ const LoginPage = () => {
 
     try {
       const res = await axios.post("/api/v1/auth/login", { email, password });
+      console.log("login", res);
       auth.setAuthUser(res.data.user);
       toast.success("Logged in");
       history.push("/profile");
     } catch (error) {
+      console.log("error", error);
       emailRef.current.focus();
       toast.error(error.response.data.error);
     }
