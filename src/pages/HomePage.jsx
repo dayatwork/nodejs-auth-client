@@ -11,6 +11,23 @@ const HomePage = () => {
         <li>Facebook Login</li>
         <li>Github Login</li>
       </ul>
+      <div className="flex flex-col">
+        <div className="text-gray-500 font-semibold mb-1.5">Repository</div>
+        <a
+          className="font-semibold text-sm underline mb-1"
+          href="https://github.com/dayatdev/nodejs-auth-client"
+          target="_blank"
+        >
+          https://github.com/dayatdev/nodejs-auth-client
+        </a>
+        <a
+          className="font-semibold text-sm underline mb-1"
+          href="https://github.com/dayatdev/nodejs-auth-server"
+          target="_blank"
+        >
+          https://github.com/dayatdev/nodejs-auth-server
+        </a>
+      </div>
     </div>
   );
 };
